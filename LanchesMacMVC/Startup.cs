@@ -57,6 +57,11 @@ namespace LanchesMacMVC
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
+                    name: "filtrarPorCategoria",
+                    pattern: "{controller=Lanche}/{action=List}/{categoria?}",
+                    defaults: new { Controller = "Lanche", action = "List" });
+
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
