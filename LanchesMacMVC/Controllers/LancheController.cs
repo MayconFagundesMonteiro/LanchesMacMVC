@@ -53,12 +53,30 @@ namespace LanchesMacMVC.Controllers
             //lancheListViewModel.CategoriaAtual = "Categoria Atual"; Atribuia ao view model pelo repository
             return View(lancheListViewModel);
         }
-        public IActionResult Details(int lancheId)
+        public ViewResult Search(string searchString)
         {
-            var lanche = _lancheRepository.Lanches.FirstOrDefault(l => l.LancheId == lancheId);
-            if(lanche == null)
+            string _searchString = searchString;
+            IEnumerable<Lanche> lanches;
+            string currentCategory = string.Empty;
+
+            if (string.IsNullOrEmpty(_searchString))
             {
-                return View("~/View/Error/Error.cshtml");
+                lanches = _lancheRepository.Lanches.OrderBy(p => p.LancheId);
+            }
+            else
+            {
+                lanches = _lancheRepository.Lanches.Where(p => p.Nome.ToLower().Contains(_searchString.ToLower()));
+            }
+
+            return View("~/Views/Lanche/List.cshtml", new LancheListViewModel { Lanches = lanches, CategoriaAtual = "Todos os lanches" });
+        }
+
+        public ViewResult Details(int lancheId)
+        {
+            var lanche = _lancheRepository.Lanches.FirstOrDefault(d => d.LancheId == lancheId);
+            if (lanche == null)
+            {
+                return View("~/Views/Error/Error.cshtml");
             }
             return View(lanche);
         }
