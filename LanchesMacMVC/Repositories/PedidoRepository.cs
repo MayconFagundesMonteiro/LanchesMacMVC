@@ -3,9 +3,6 @@ using LanchesMacMVC.Context;
 using LanchesMacMVC.Models;
 using LanchesMacMVC.Repositories.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace LanchesMacMVC.Repositories
 {
@@ -23,6 +20,7 @@ namespace LanchesMacMVC.Repositories
         {
             pedido.PedidoEnviado = DateTime.Now;
             _context.Pedidos.Add(pedido);
+            _context.SaveChanges();
 
             var carrinhoCompraItens = _carrinhoCompra.CarrinhoCompraItens;
             foreach(var carrinhoItem in carrinhoCompraItens)
