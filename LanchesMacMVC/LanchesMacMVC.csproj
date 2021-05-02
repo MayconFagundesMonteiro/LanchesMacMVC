@@ -7,11 +7,14 @@
   <ItemGroup>
     <Compile Remove="Migrations\20210307180737_MigracaoInicial.cs" />
     <Compile Remove="Migrations\20210307180737_MigracaoInicial.Designer.cs" />
+    <Compile Remove="Migrations\20210502201251_AdcionaIdentity.cs" />
+    <Compile Remove="Migrations\20210502201251_AdcionaIdentity.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
