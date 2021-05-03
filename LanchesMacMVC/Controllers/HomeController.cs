@@ -20,5 +20,9 @@ namespace LanchesMacMVC.Controllers
             };
             return View(homeviewModel);
         }
+        public ViewResult AcessDenied()
+        {
+            return View();
+        }
     }
 }

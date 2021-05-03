@@ -11,6 +11,7 @@ namespace LanchesMacMVC.Models.ViewModels
         [Required]
         [Display(Name ="Usuário")]
         public string userName { get; set; }
+        public string UserName { get; internal set; }
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }

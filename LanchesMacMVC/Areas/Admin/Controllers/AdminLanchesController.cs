@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace LanchesMacMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     public class AdminLanchesController : Controller
     {
         private readonly AppDbContext _context;
