@@ -61,6 +61,8 @@ namespace LanchesMacMVC
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("areaRoute", "{area:exists}/{Controller=Admin}/{Action=Index}{id?}");
+
                 endpoints.MapControllerRoute(
                    name: "default",
                    pattern: "{controller=Home}/{action=Index}/{id?}");
