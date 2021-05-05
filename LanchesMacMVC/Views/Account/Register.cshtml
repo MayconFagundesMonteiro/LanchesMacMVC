@@ -1,21 +1,18 @@
-﻿
-@model LoginViewModel
-
+﻿@model LoginViewModel
 <table>
     <tr>
         <td><img src="~/images/registro1.jpg" alt="Registrar Usuário" class="center-block" /></td>
         <td>
             <div class="row loginForm">
-                <div class="col-md-8 col-md-offset-2">
-                    <h2>Registrar usuário</h2>
+                <div class="col-md-12">
+                    <h4>Registrar usuário</h4>
                     <form asp-controller="Account" asp-action="Register" method="post" class="form-horizontal" role="form">
-                        <h4>Crie a sua conta e faça logo o pedido do seu lanche!</h4>
                         <hr />
                         <div class="form-group">
-                            <label asp-for="userName" class="col-md-2 control-label"></label>
+                            <label asp-for="UserName" class="col-md-2 control-label"></label>
                             <div class="col-md-12">
-                                <input asp-for="userName" class="form-control" />
-                                <span asp-validation-for="userName" class="text-danger"></span>
+                                <input asp-for="UserName" class="form-control" />
+                                <span asp-validation-for="UserName" class="text-danger"></span>
                             </div>
                         </div>
                         <div class="form-group">

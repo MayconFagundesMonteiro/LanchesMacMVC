@@ -1,8 +1,11 @@
 ﻿@model CarrinhoCompraViewModel
 
 <div class="row checkoutForm">
-    <h2>Seu carrinho de compras</h2>
-    <h4>Aqui estão os seus pedidos</h4>
+
+    <img src="~/images/Full-Cart-icon.png" />
+    <div>
+        <h4> Seu carrinho de compras : </h4>
+    </div>
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
@@ -23,7 +26,9 @@
                     <td class="text-right">
                         @((item.Quantidade * item.Lanche.Preco).ToString("c"))
                     </td>
-                    <td class="text-center"><a class="glyphicon glyphicon-remove text-danger remove" asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinhoCompra" asp-route-lancheId="@item.Lanche.LancheId"></a></td>
+                    <td class="text-center">
+                        <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinhoCompra" asp-route-lancheId="@item.Lanche.LancheId"><img src="~/images/delete.png" /></a>
+                    </td>
                 </tr>
             }
         </tbody>
@@ -42,13 +47,21 @@
             <a class="btn btn-success" asp-controller="Pedido" asp-action="Checkout">Encerrar Pedido</a>
             <a class="btn-group">
                 <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    Adicionar mais lanches<span class="caret"></span>
+                    Mais Lanches  <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a asp-controller="Lanche" asp-action="List" asp-route-categoria="Normal">Normal</a></li>
-                    <li><a asp-controller="Lanche" asp-action="List" asp-route-categoria="Natural">Natural</a></li>
-                </ul>
+                @await Component.InvokeAsync("CategoriaMenu")
+
+                @*//////////////////////////////////////////////////////////////////////////////
+                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                          Adicionar mais lanches<span class="caret"></span>
+                      </a>
+                        <ul class="dropdown-menu" role="menuitem">
+                            <li><a asp-controller="Lanche" asp-action="List" asp-route-categoria="Normal"><b>Normal</b></a></li>
+                            <li><a asp-controller="Lanche" asp-action="List" asp-route-categoria="Natural"><b>Natural</b></a></li>
+                        </ul>
+                    ///////////////////////////////////////////////////////////////////////////////*@
             </a>
         </div>
     </div>
 </div>
+

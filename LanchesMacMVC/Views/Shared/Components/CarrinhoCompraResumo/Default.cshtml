@@ -2,14 +2,10 @@
 
 @if (Model.CarrinhoCompra.CarrinhoCompraItens.Count > 0)
 {
-    <li class="dropdown">
-        <a asp-controller="CarrinhoCompra">
-            <span>
-                <img src="~/Images/Icon.png" width="20" height="20"/>
-            </span>
-            <span id="cart-status">
-                @Model.CarrinhoCompra.CarrinhoCompraItens.Count
-            </span>
-        </a>
-    </li>
+    <a asp-controller="CarrinhoCompra">
+        <span><img src="~/images/cart-5-16.ico" /></span>
+        <span style="color:white">
+            @Model.CarrinhoCompra.CarrinhoCompraItens.Count
+        </span>
+    </a>
 }
