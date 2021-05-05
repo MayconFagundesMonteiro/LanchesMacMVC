@@ -33,7 +33,7 @@ namespace LanchesMac.Controllers
             if (!ModelState.IsValid)
                 return View(loginVM);
 
-            var user = await _userManager.FindByNameAsync(loginVM.UserName);
+            var user = await _userManager.FindByNameAsync(loginVM.userName);
 
             if (user != null)
             {
@@ -63,7 +63,7 @@ namespace LanchesMac.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser() { UserName = loginVM.UserName };
+                var user = new IdentityUser() { UserName = loginVM.userName };
                 var result = await _userManager.CreateAsync(user, loginVM.Password);
 
                 if (result.Succeeded)
@@ -75,6 +75,8 @@ namespace LanchesMac.Controllers
                     return RedirectToAction("LoggedIn", "Account");
                 }
             }
+            ModelState.AddModelError("Password", "Erro ao registrar usuario," +
+                " certifique se de estar registrando um usuario não cadastrado, usando caracters maiúsculo, minúscula, numericos e caracteres especiais. (ex: Exemplo#109@vx)");
             return View(loginVM);
         }
 
