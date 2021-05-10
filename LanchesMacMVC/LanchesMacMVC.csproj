@@ -9,6 +9,8 @@
     <Compile Remove="Migrations\20210307180737_MigracaoInicial.Designer.cs" />
     <Compile Remove="Migrations\20210502201251_AdcionaIdentity.cs" />
     <Compile Remove="Migrations\20210502201251_AdcionaIdentity.Designer.cs" />
+    <Compile Remove="Migrations\20210510162214_teste.cs" />
+    <Compile Remove="Migrations\20210510162214_teste.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
