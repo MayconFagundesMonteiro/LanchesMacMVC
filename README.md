@@ -1,5 +1,5 @@
 <h1 align="center">LanchesMacMVC</h1>
-<h1><video src="https://ik.imagekit.io/xguomcqgelu/ApresentacaoLancheMVC_LHFIbH4Jrs.mp4"></h1>
+<h1><img src="https://ik.imagekit.io/xguomcqgelu/ApresentacaoLancheMVC__1__NUtIihl2A.gif"/></h1>
 
 ## 📚 Sobre
 
